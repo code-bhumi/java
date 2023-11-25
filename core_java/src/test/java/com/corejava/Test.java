@@ -5,6 +5,7 @@ public class Test {
         for (int i = 1; i <= 11; ++i) {
             System.out.println("i == " + i);
             System.out.println("square root of == i" + i + " == " + i * i);
+            System.out.println("cube root of == i" + i + " == " + i * i * i);
         }
     }
 }
