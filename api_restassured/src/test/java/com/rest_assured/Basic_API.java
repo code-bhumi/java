@@ -20,7 +20,8 @@ public class Basic_API {
 
         RestAssured.baseURI = "https://rahulshettyacademy.com";
         String response = given().log().all()
-        .queryParam("key", "qaclick123").header("Content-Type", "application/json")
+        .queryParam("key", "qaclick123")
+        .header("Content-Type", "application/json")
         .body(payload.AddPlace()).when().post("maps/api/place/add/json")
         .then().assertThat().statusCode(200)
         .extract().response().asString();
@@ -33,16 +34,19 @@ public class Basic_API {
 
         String newAddress = "Summer Walk, Australia";
 
-        given().log().all().queryParam("key", "qaclick123").header("Content-Type", "application/json")
+        given().log().all().queryParam("key", "qaclick123")
+        .header("Content-Type", "application/json")
         .body("{\r\n" +
             "\"place_id\":\""+placeId+"\",\r\n" +
              "\"address\":\""+newAddress+"\",\r\n" +
              "\"key\":\"qaclick123\"\r\n" +
             "}")
         .when().put("maps/api/place/update/json")
-        .then().assertThat().log().all().statusCode(200).body("msg", equalTo("Address successfully updated"));
+        .then().assertThat().log().all().statusCode(200)
+        .body("msg", equalTo("Address successfully updated"));
         
-        String getPlaceResponse = given().log().all().queryParam("key", "qaclick123")
+        String getPlaceResponse = given().log().all()
+        .queryParam("key", "qaclick123")
         .queryParam("place_id",placeId)
         .when().get("maps/api/place/add/json")
         .then().assertThat().log().all().statusCode(200)
