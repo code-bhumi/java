@@ -31,7 +31,7 @@ public class payload {
                 "\n" + //
                 "\"dashboard\": {\n" + //
                 "\n" + //
-                "\"purchaseAmount\": 910,\n" + //
+                "\"purchaseAmount\": 1162,\n" + //
                 "\n" + //
                 "\"website\": \"rahulshettyacademy.com\"\n" + //
                 "\n" + //
@@ -74,6 +74,22 @@ public class payload {
                 "}";
         
     }
+
+    public static String Addbook(String aisle, String isbn)
+    {
+        String payload = "{\r\n"+
+            "\r\n"+
+            "\"name\":\"Learn Appium Automation with Java\",\r\n"+
+            "\"isbn\":\""+isbn+"\",\r\n"+
+            "\"aisle\":\""+aisle+"\",\r\n"+
+            "\"author\":\"John foe\"\r\n"+
+            "}\r\n"+
+            "\r\n"+
+            "";
+            return payload;
+    }
+
+    
   
 
 }
