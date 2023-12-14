@@ -1,7 +1,9 @@
 package com.oauthtest;
 
 import static io.restassured.RestAssured.given;
+import io.restassured.parsing.Parser;
 import io.restassured.path.json.JsonPath;
+import pojo.GetCourse;
 public class OAuth_Test {
     
     public static void main(String[] args) throws InterruptedException {
@@ -37,16 +39,17 @@ public class OAuth_Test {
         
 
 
-        String response =  given().queryParam("access_token", accessToken)
-        .when().log().all()
-        .get("https://rahulshettyacademy.com/getCourse.php").asString();
+        GetCourse gc =  given().queryParam("access_token", accessToken).expect().defaultParser(Parser.JSON)
+        .when()
+        .get("https://rahulshettyacademy.com/getCourse.php").as(GetCourse.class);
 
-        System.out.println(response);
+        System.out.println(gc.getLinkedIn());
+         System.out.println(gc.getInstructor());
+        //System.out.println(response);
 
        
 
     }
 }
 
-// https://rahulshettyacademy.com/getCourse.php?code=4%2F0AfJohXmU1Db2M5CFnNZqjfjr1tyiwl6vzxIS321f5wEnn2lViG7kd_5_0O11GNNykQKOKw&scope=email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=consent
 
