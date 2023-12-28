@@ -1,2 +1,3 @@
 *.class
 *.vscode
+cucumber_automation/target/
