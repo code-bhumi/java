@@ -2,20 +2,19 @@ package com.bdd.Resources;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.pojo.AddPlace;
 import com.pojo.Location;
 
 public class TestDataBuild {
     
-    public AddPlace addPlacePayLoad()
+    public AddPlace addPlacePayLoad(String name, String language, String address)
     {
                 
         AddPlace pl = new AddPlace();
         pl.setAccuracy(50);
-        pl.setAddress("29, side layout, cohen 09");
-        pl.setLanguage("French-IN");
-        pl.setName("Frontline House");
+        pl.setAddress(address);
+        pl.setLanguage(language);
+        pl.setName(name);
         pl.setPhone_number("(+91) 983 893 3937");
         pl.setWebsite("https://rahulshettyacademy.com");
         List<String> myList = new ArrayList<String>();
@@ -30,7 +29,4 @@ public class TestDataBuild {
         return pl;
     }
 
-    public String addPlacePayLoad(String name, String language, String address) {
-        return null;
-    }
 }

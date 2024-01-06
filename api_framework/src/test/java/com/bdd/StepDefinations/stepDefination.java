@@ -5,7 +5,6 @@ import com.bdd.Resources.TestDataBuild;
 import com.bdd.Resources.Utils;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.*;
-import java.io.IOException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -24,21 +23,27 @@ Response response;
 TestDataBuild data = new TestDataBuild();
 
 @Given("Add Place Payload with {string} {string} {string}")
-public void add_place_payload_with(String name, String language, String address) throws IOException {
-
+public void add_place_payload_with(String name, String language, String address) throws Exception {
+    
         res = given().spec(requestSpecification())
         .body(data.addPlacePayLoad(name,language,address));
+   
 }
 
-@When("user calls {string} with Post http request")
-public void user_calls_with_post_http_request(String resource) {
+@When("user calls {string} with {string} http request")
+public void user_calls_with_post_http_request(String resource, String method) {
 
         API_Resources resourceAPI = API_Resources.valueOf(resource);
         System.out.println(resourceAPI.getResource());
-        resSpec =  new ResponseSpecBuilder().
-        expectStatusCode(200).expectContentType(ContentType.JSON).build();
-        response = res.when().post("/maps/api/place/add/json")
-        .then().spec(resSpec).extract().response();
+
+        resSpec =  new ResponseSpecBuilder().expectStatusCode(200)
+        .expectContentType(ContentType.JSON).build();
+
+        if(method.equalsIgnoreCase("POST"))
+        response = res.when().post(resourceAPI.getResource());
+        else if(method.equalsIgnoreCase("GET"))
+        response = res.when().get(resourceAPI.getResource());
+        
 }
 
 @Then("the API call got success with status code {int}")
