@@ -14,3 +14,4 @@ public class TestRunner {
    
 }
    
+// tags= "@DeletePlace"  => this comand is used for running a particular test
