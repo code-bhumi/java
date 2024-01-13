@@ -1,4 +1,4 @@
-package com.bdd.Resources;
+package com.api_framework_latest.Resources;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -35,10 +35,9 @@ public class Utils {
     public static String getGlobalValue(String key) throws IOException
     {
         Properties prop = new Properties();
-        FileInputStream fis = new FileInputStream("/Users/meenakshipal/git_hub/java/api_framework/src/test/java/com/bdd/Resources/global.properties");
+        FileInputStream fis = new FileInputStream("/Users/meenakshipal/git_hub/java/apiframework_latest/src/test/java/com/api_framework_latest/Resources/global.properties");
         prop.load(fis);
         return prop.getProperty(key);
-        
     }
 
     public String getJsonPath(Response response,String key)
@@ -48,4 +47,5 @@ public class Utils {
         return js.get(key).toString();
 
     }
+
 }
