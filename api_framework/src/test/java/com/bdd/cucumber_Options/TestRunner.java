@@ -7,7 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
     stepNotifications = true,
-    features="src/test/java/com/bdd/PlaceValidations", 
+    features="src/test/java/com/bdd/PlaceValidations",plugin ="json:target/jsonReports/cucumber-report.json",
     glue = {"com", "bdd"})
 
 public class TestRunner {
