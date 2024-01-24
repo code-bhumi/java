@@ -8,7 +8,7 @@ public class TestSample {
     public static void main(String[] args) throws IOException {
         
         Data_driven d = new Data_driven();
-        ArrayList data = d.getData("");
+        ArrayList data = d.getData("Login");
 
         System.out.println(data.get(0));
         System.out.println(data.get(1));
