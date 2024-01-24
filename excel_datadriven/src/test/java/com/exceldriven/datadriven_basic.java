@@ -47,7 +47,7 @@ for(int i=0;i<sheets;i++)  {
      while(rows.hasNext()) 
        {
            Row r = rows.next();
-           if(r.getCell(coloumn).getStringCellValue().equalsIgnoreCase("Purchase"))  
+           if(r.getCell(coloumn).getStringCellValue().equalsIgnoreCase("AddProfile"))  
             {
                 // after you grab purchase testcase row = pull all the data of that row nd feed into test
                 Iterator<Cell> cv = r.cellIterator();
