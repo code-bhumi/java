@@ -1,3 +1,5 @@
+// write a programming to check if a vowel is present in the string
+
 package com.javaprogram;
 
 public class vowel_check {
