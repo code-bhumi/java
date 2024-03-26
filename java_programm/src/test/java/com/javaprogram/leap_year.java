@@ -5,7 +5,7 @@ public class leap_year {
     public static void main(String args[]) {
     // year to be checked
 
-    int year = 1985;
+    int year = 2017;
     boolean leap = false;
 
     if (year % 4 == 0) {
